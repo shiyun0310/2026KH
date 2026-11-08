@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>東京五日行程</title>
+<style>
+:root{
+  --bg:#f6f3ee; --card:#ffffff; --ink:#1f2328; --muted:#6b7078; --line:#e6e1d8;
+  --accent:#c8402f; --accent-soft:#fbe9e5; --own:#2f6fb0; --own-soft:#e7f0fa; --done:#9aa0a6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15171a; --card:#1e2125; --ink:#e8e6e3; --muted:#9aa0a6; --line:#2d3136;
+    --accent:#ff7a66; --accent-soft:#3a2420; --own:#7fb2ea; --own-soft:#1d2a3a; --done:#5f646a;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15171a; --card:#1e2125; --ink:#e8e6e3; --muted:#9aa0a6; --line:#2d3136;
+  --accent:#ff7a66; --accent-soft:#3a2420; --own:#7fb2ea; --own-soft:#1d2a3a; --done:#5f646a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  line-height:1.6;-webkit-text-size-adjust:100%}
+.wrap{max-width:720px;margin:0 auto;padding:24px 16px 48px}
+header h1{margin:0;font-size:1.6rem;letter-spacing:.02em}
+header p{margin:4px 0 0;color:var(--muted);font-size:.95rem}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;gap:6px;
+  overflow-x:auto;padding:12px 0;margin:12px 0 4px;border-bottom:1px solid var(--line)}
+nav a{flex:0 0 auto;text-decoration:none;color:var(--ink);background:var(--card);
+  border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:.88rem}
+nav a:hover{border-color:var(--accent)}
+.day{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:18px 18px 14px;margin-top:16px;scroll-margin-top:64px}
+.day-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.badge{background:var(--accent);color:#fff;font-weight:700;border-radius:8px;
+  padding:2px 10px;font-size:.9rem}
+.date{color:var(--muted);font-size:.92rem}
+.day h2{margin:0;font-size:1.2rem;width:100%}
+dl{margin:12px 0 0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px}
+dt{color:var(--muted);font-size:.88rem;white-space:nowrap;padding-top:1px}
+dd{margin:0}
+.flight{background:var(--accent-soft);border-radius:10px;padding:8px 12px;margin-top:12px;font-size:.95rem}
+.flight b{color:var(--accent)}
+.route{display:flex;flex-wrap:wrap;gap:4px 0;align-items:center}
+.route span{white-space:nowrap}
+.route span:not(:last-child)::after{content:"→";color:var(--muted);margin:0 6px}
+.meals{display:flex;flex-wrap:wrap;gap:6px}
+.meal{border:1px solid var(--line);border-radius:6px;padding:0 8px;font-size:.88rem}
+.meal.coupon{border-color:var(--accent);color:var(--accent)}
+.own{margin-top:14px;background:var(--own-soft);border-radius:10px;padding:10px 12px}
+.own h3{margin:0 0 6px;font-size:.95rem;color:var(--own)}
+.own ul{list-style:none;margin:0;padding:0}
+.own li{display:flex;gap:8px;align-items:flex-start;padding:5px 0;border-top:1px dashed var(--line)}
+.own li:first-child{border-top:0}
+.own input{margin-top:5px;accent-color:var(--own);width:16px;height:16px;flex:0 0 auto}
+.own label{flex:1;cursor:pointer}
+.own .sub{display:block;color:var(--muted);font-size:.85rem}
+.own a.map{flex:0 0 auto;font-size:.8rem;color:var(--own);text-decoration:none;
+  border:1px solid var(--own);border-radius:6px;padding:0 6px;margin-top:3px}
+.own li.checked label{color:var(--done);text-decoration:line-through}
+.empty{color:var(--muted);font-size:.9rem;margin:0}
+footer{color:var(--muted);font-size:.82rem;text-align:center;margin-top:28px}
+@media print{nav{display:none}.day{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>東京五日行程</h1>
+    <p>11/18（三）– 11/22（日）・高雄 ⇄ 成田</p>
+  </header>
+
+  <nav>
+    <a href="#d1">D1 高雄→成田</a>
+    <a href="#d2">D2 鎌倉・橫濱</a>
+    <a href="#d3">D3 港區・澀谷・原宿</a>
+    <a href="#d4">D4 迪士尼</a>
+    <a href="#d5">D5 成田→高雄</a>
+  </nav>
+
+  <!-- Day 1 -->
+  <section class="day" id="d1">
+    <div class="day-head"><span class="badge">第1天</span><span class="date">11/18（三）</span>
+      <h2>高雄 → 成田</h2></div>
+    <div class="flight">✈️ <b>CI102</b>　08:00 起飛 → 12:20 抵達<br>⏰ 06:00 小港機場集合</div>
+    <dl>
+      <dt>行程</dt><dd><div class="route"><span>AEONMALL 永旺夢樂城</span><span>飯店</span></div>
+        晚上可用贈送的溫泉券去東京湯樂城</dd>
+      <dt>餐點</dt><dd class="meals"><span class="meal">早：無</span><span class="meal">午：機上簡餐</span><span class="meal coupon">晚：代金 ¥2000</span></dd>
+      <dt>住宿</dt><dd>🏨 千葉湯樂城</dd>
+    </dl>
+  </section>
+
+  <!-- Day 2 -->
+  <section class="day" id="d2">
+    <div class="day-head"><span class="badge">第2天</span><span class="date">11/19（四）</span>
+      <h2>鎌倉・橫濱</h2></div>
+    <dl>
+      <dt>行程</dt><dd><div class="route"><span>江之島電車</span><span>鶴岡八幡宮</span><span>鎌倉小町通</span><span>MITSUI OUTLET PARK 橫濱港灣</span></div></dd>
+      <dt>餐點</dt><dd class="meals"><span class="meal">早：飯店</span><span class="meal">午：鎌倉風味餐</span><span class="meal coupon">晚：代金 ¥2000</span></dd>
+      <dt>住宿</dt><dd>🏨 新橫濱王子飯店</dd>
+    </dl>
+    <div class="own"><h3>★ 自己行程</h3><ul>
+      <li><input type="checkbox" id="d2a"><label for="d2a">寶可夢中心 YOKOHAMA（橫濱）<span class="sub">橫濱天空大樓 8F・營業 10:30–20:30</span></label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Pokemon+Center+Yokohama">地圖</a></li>
+      <li><input type="checkbox" id="d2b"><label for="d2b">友都八喜 橫濱店<span class="sub">營業 09:30–22:00</span></label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Yodobashi+Yokohama">地圖</a></li>
+      <li><input type="checkbox" id="d2c"><label for="d2c">Don Quijote 橫濱車站</label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Don+Quijote+Yokohama+Station">地圖</a></li>
+      <li><input type="checkbox" id="d2d"><label for="d2d">MEGA 唐吉訶德 新橫濱店</label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=MEGA+Don+Quijote+Shin-Yokohama">地圖</a></li>
+    </ul></div>
+  </section>
+
+  <!-- Day 3 -->
+  <section class="day" id="d3">
+    <div class="day-head"><span class="badge">第3天</span><span class="date">11/20（五）</span>
+      <h2>港區・澀谷・原宿</h2></div>
+    <dl>
+      <dt>行程</dt><dd><div class="route"><span>免稅店</span><span>麻布台之丘</span><span>明治神宮</span><span>表參道</span></div></dd>
+      <dt>餐點</dt><dd class="meals"><span class="meal">早：飯店</span><span class="meal coupon">午：代金 ¥2000</span><span class="meal coupon">晚：代金 ¥2000</span></dd>
+      <dt>住宿</dt><dd>🏨 舞濱歐亞 ANNEX</dd>
+    </dl>
+    <div class="own"><h3>★ 自己行程</h3><ul>
+      <li><input type="checkbox" id="d3a"><label for="d3a">＠cosme TOKYO</label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=@cosme+TOKYO+Harajuku">地圖</a></li>
+      <li><input type="checkbox" id="d3b"><label for="d3b">竹下通</label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Takeshita+Street">地圖</a></li>
+      <li><input type="checkbox" id="d3c"><label for="d3c">3COINS 原宿旗艦店</label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=3COINS+Harajuku">地圖</a></li>
+      <li><input type="checkbox" id="d3d"><label for="d3d">LIBERTY WALK TOKYO</label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=LIBERTY+WALK+TOKYO">地圖</a></li>
+      <li><input type="checkbox" id="d3e"><label for="d3e">🌙 晚上：秋葉原</label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Akihabara">地圖</a></li>
+      <li><input type="checkbox" id="d3f"><label for="d3f">🌙 伊克斯皮兒莉購物中心<span class="sub">營業 10:00–22:30</span></label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Ikspiari">地圖</a></li>
+      <li><input type="checkbox" id="d3g"><label for="d3g">🌙 7-ELEVEN（浦安舞濱店）</label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=7-Eleven+Urayasu+Maihama">地圖</a></li>
+    </ul></div>
+  </section>
+
+  <!-- Day 4 -->
+  <section class="day" id="d4">
+    <div class="day-head"><span class="badge">第4天</span><span class="date">11/21（六）</span>
+      <h2>迪士尼</h2></div>
+    <dl>
+      <dt>行程</dt><dd>🌊 迪士尼海洋</dd>
+      <dt>餐點</dt><dd class="meals"><span class="meal">早：飯店</span><span class="meal">午：自理</span><span class="meal">晚：自理</span></dd>
+      <dt>住宿</dt><dd>🏨 舞濱歐亞 ANNEX（續住）</dd>
+    </dl>
+    <div class="own"><h3>★ 自己行程</h3><ul>
+      <li><input type="checkbox" id="d4a"><label for="d4a">空調衣 Bic Uniform 上野店<span class="sub">營業 10:00–17:00</span></label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Bic+Uniform+Ueno">地圖</a></li>
+      <li><input type="checkbox" id="d4b"><label for="d4b">Seria Ueno Marui Shop</label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Seria+Ueno+Marui">地圖</a></li>
+      <li><input type="checkbox" id="d4c"><label for="d4c">上野阿美橫商店街</label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Ameyoko+Ueno">地圖</a></li>
+      <li><input type="checkbox" id="d4d"><label for="d4d">玩具店 Yamashiroya 上野</label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Yamashiroya+Ueno">地圖</a></li>
+      <li><input type="checkbox" id="d4e"><label for="d4e">炸豬排 山家 上野店</label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Tonkatsu+Yamabe+Ueno">地圖</a></li>
+      <li><input type="checkbox" id="d4f"><label for="d4f">寶可夢商店 東京車站店<span class="sub">一番街 1F 動漫人物街・營業 10:00–20:30</span></label><a class="map" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Pokemon+Store+Tokyo+Station">地圖</a></li>
+    </ul></div>
+  </section>
+
+  <!-- Day 5 -->
+  <section class="day" id="d5">
+    <div class="day-head"><span class="badge">第5天</span><span class="date">11/22（日）</span>
+      <h2>成田 → 高雄</h2></div>
+    <div class="flight">✈️ <b>CI103</b>　13:20 起飛 → 16:50 抵達</div>
+    <dl>
+      <dt>行程</dt><dd>早餐後直接前往機場</dd>
+      <dt>餐點</dt><dd class="meals"><span class="meal">早：飯店</span><span class="meal">午：機上簡餐</span><span class="meal">晚：無</span></dd>
+    </dl>
+    <div class="own"><h3>★ 自己行程</h3><p class="empty">（尚未安排）</p></div>
+  </section>
+
+  <footer>勾選「自己行程」會記在這支手機的瀏覽器裡</footer>
+</div>
+<script>
+(function(){
+  var KEY="tokyo-trip-checks";
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||"{}")||{};}catch(e){}
+  document.querySelectorAll('.own input[type=checkbox]').forEach(function(cb){
+    var li=cb.closest('li');
+    if(saved[cb.id]){cb.checked=true;li.classList.add('checked');}
+    cb.addEventListener('change',function(){
+      li.classList.toggle('checked',cb.checked);
+      saved[cb.id]=cb.checked;
+      try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}
+    });
+  });
+})();
+</script>
+</body>
+</html>
